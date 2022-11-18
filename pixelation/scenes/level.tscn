@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://w6bqwqlijmaj"]
+
+[ext_resource type="PackedScene" uid="uid://is6ml5esbo65" path="res://scenes/fox.tscn" id="1_4mhvo"]
+[ext_resource type="Environment" uid="uid://chldrefkt740c" path="res://resources/world_env.tres" id="2_scfqt"]
+[ext_resource type="PlaneMesh" uid="uid://edvyh60kwc1x" path="res://resources/water.tres" id="3_xlkk2"]
+[ext_resource type="Shader" path="res://resources/spatial_pixelation.gdshader" id="4_pdtnr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_re2iu"]
+albedo_color = Color(0.207843, 0.564706, 0.396078, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qq68x"]
+material = SubResource("StandardMaterial3D_re2iu")
+size = Vector2(40, 40)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t82rl"]
+render_priority = 0
+shader = ExtResource("4_pdtnr")
+
+[sub_resource type="QuadMesh" id="QuadMesh_aribl"]
+material = SubResource("ShaderMaterial_t82rl")
+
+[node name="Level" type="Node3D"]
+
+[node name="Fox" parent="." instance=ExtResource("1_4mhvo")]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0827217, 0)
+mesh = SubResource("PlaneMesh_qq68x")
+
+[node name="PostProcessing" type="Node3D" parent="."]
+
+[node name="Light" type="DirectionalLight3D" parent="PostProcessing"]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
+environment = ExtResource("2_scfqt")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_xlkk2")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2, 4)
+
+[node name="Pixelation" type="MeshInstance3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+mesh = SubResource("QuadMesh_aribl")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/troops/archer/blue.png" type="Texture" id=1]
+[ext_resource path="res://scripts/character.gd" type="Script" id=2]
+
+[node name="Archer" type="KinematicBody2D"]
+position = Vector2( 512, 300 )
+script = ExtResource( 2 )
+
+[node name="Texture" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 8
+vframes = 7

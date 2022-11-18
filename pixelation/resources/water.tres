@@ -1,0 +1,35 @@
+[gd_resource type="PlaneMesh" load_steps=7 format=3 uid="uid://edvyh60kwc1x"]
+
+[ext_resource type="Shader" path="res://resources/shaders/toon_water.gdshader" id="1_xj636"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kskjt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iuoi5"]
+noise = SubResource("FastNoiseLite_kskjt")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uq1lj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0uro1"]
+noise = SubResource("FastNoiseLite_uq1lj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eokkb"]
+render_priority = 0
+shader = ExtResource("1_xj636")
+shader_parameter/_DepthFactor = 1.0
+shader_parameter/_DepthGradientDeep = Color(0.086, 0.407, 1, 0.749)
+shader_parameter/_DepthGradientShallow = Color(0.325, 0.807, 0.971, 0.725)
+shader_parameter/_DepthMaxDistance = 1.0
+shader_parameter/beer_factor = 0.8
+shader_parameter/distortNoise = SubResource("NoiseTexture2D_iuoi5")
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+shader_parameter/foam_max_distance = 0.4
+shader_parameter/foam_min_distance = 0.04
+shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_0uro1")
+shader_parameter/surface_distortion_amount = 0.27
+shader_parameter/surface_noise_cutoff = 0.777
+shader_parameter/surface_noise_scroll = null
+shader_parameter/surface_noise_tiling = null
+
+[resource]
+material = SubResource("ShaderMaterial_eokkb")
+size = Vector2(200, 200)

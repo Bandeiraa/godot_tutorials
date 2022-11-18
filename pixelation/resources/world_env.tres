@@ -1,0 +1,31 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://chldrefkt740c"]
+
+[ext_resource type="Shader" path="res://resources/shaders/sky.gdshader" id="1_ime3c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcqdk"]
+shader = ExtResource("1_ime3c")
+shader_parameter/color_bottom = null
+shader_parameter/color_horizon = null
+shader_parameter/color_top = null
+shader_parameter/exponent_factor_bottom = null
+shader_parameter/exponent_factor_top = null
+shader_parameter/intensity_amp = null
+
+[sub_resource type="Sky" id="Sky_rmjm0"]
+sky_material = SubResource("ShaderMaterial_dcqdk")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_rmjm0")
+ambient_light_source = 3
+reflected_light_source = 2
+ssil_enabled = true
+glow_enabled = true
+glow_intensity = 0.7
+glow_strength = 1.1
+glow_bloom = 0.1
+glow_hdr_threshold = 0.9
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.04
+volumetric_fog_gi_inject = 3.0
+volumetric_fog_ambient_inject = 0.4
