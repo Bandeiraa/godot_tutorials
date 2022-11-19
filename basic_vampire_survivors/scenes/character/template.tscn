@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8gx47nxffwlh"]
+
+[ext_resource type="Script" path="res://scripts/character.gd" id="1_qgno3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6v3r"]
+size = Vector2(20, 9)
+
+[sub_resource type="Animation" id="Animation_f2web"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_14qr4"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_apa54"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.261799, -0.261799]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvv4x"]
+_data = {
+"RESET": SubResource("Animation_f2web"),
+"idle": SubResource("Animation_14qr4"),
+"walk": SubResource("Animation_apa54")
+}
+
+[node name="CharacterTemplate" type="Area2D"]
+script = ExtResource("1_qgno3")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_u6v3r")
+
+[node name="Texture" type="Sprite2D" parent="."]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kvv4x")
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true

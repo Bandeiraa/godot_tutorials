@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmnj4ibhrwxkc"]
+
+[ext_resource type="PackedScene" uid="uid://b8gx47nxffwlh" path="res://scenes/character/template.tscn" id="1_burmu"]
+[ext_resource type="Texture2D" uid="uid://corgkeyy3xe8s" path="res://assets/classes/wizard.png" id="2_b2swy"]
+
+[node name="Wizard" instance=ExtResource("1_burmu")]
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("2_b2swy")

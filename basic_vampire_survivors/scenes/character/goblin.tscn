@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://de6pp24t3k0dc"]
+
+[ext_resource type="PackedScene" uid="uid://b8gx47nxffwlh" path="res://scenes/character/template.tscn" id="1_pa83a"]
+[ext_resource type="Texture2D" uid="uid://ddc0ggqh6wwem" path="res://assets/classes/goblin.png" id="2_m728v"]
+
+[node name="Goblin" instance=ExtResource("1_pa83a")]
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("2_m728v")
