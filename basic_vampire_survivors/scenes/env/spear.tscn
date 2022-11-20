@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2ay17smaa4yu"]
+
+[ext_resource type="PackedScene" uid="uid://byyomafwdonfe" path="res://scenes/env/fireball.tscn" id="1_d6pag"]
+[ext_resource type="Texture2D" uid="uid://mqhmlgs2dijj" path="res://assets/effects/spear.png" id="2_mihd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iva7"]
+atlas = ExtResource("2_mihd6")
+region = Rect2(0, 0, 68, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbnyr"]
+animations = [{
+"frames": [SubResource("AtlasTexture_2iva7")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8kl2"]
+size = Vector2(24, 29)
+
+[node name="Spear" instance=ExtResource("1_d6pag")]
+scale = Vector2(0.5, 0.5)
+can_rotate = false
+damage = 10
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource("SpriteFrames_gbnyr")
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(22, -26.5)
+shape = SubResource("RectangleShape2D_v8kl2")

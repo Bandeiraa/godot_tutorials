@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/character.gd" id="1_qgno3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u6v3r"]
-size = Vector2(20, 9)
+size = Vector2(20, 17)
 
 [sub_resource type="Animation" id="Animation_f2web"]
 length = 0.001
@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.261799, -0.261799]
+"values": [0.0, 0.174533, -0.174533]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kvv4x"]
@@ -65,7 +65,7 @@ _data = {
 script = ExtResource("1_qgno3")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 13.5)
+position = Vector2(0, 9.5)
 shape = SubResource("RectangleShape2D_u6v3r")
 
 [node name="Texture" type="Sprite2D" parent="."]
@@ -77,3 +77,9 @@ libraries = {
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="on_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="on_attack_cooldown_timeout"]

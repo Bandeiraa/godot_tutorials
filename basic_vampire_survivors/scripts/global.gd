@@ -1,3 +1,3 @@
 extends Node
 
-var character: CharacterBody2D = null
+var character: Area2D = null

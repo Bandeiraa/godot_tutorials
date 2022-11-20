@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ic2wfm8dpb8y"]
+
+[ext_resource type="PackedScene" uid="uid://byyomafwdonfe" path="res://scenes/env/fireball.tscn" id="1_0urnx"]
+[ext_resource type="Texture2D" uid="uid://bmve2g2qsln8e" path="res://assets/effects/sword.png" id="2_c1j4k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ynrw"]
+animations = [{
+"frames": [ExtResource("2_c1j4k")],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_461on"]
+size = Vector2(16, 15.25)
+
+[node name="Sword" instance=ExtResource("1_0urnx")]
+can_rotate = false
+damage = 5
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(0, 5)
+frames = SubResource("SpriteFrames_4ynrw")
+animation = &"idle"
+
+[node name="Collision" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_461on")

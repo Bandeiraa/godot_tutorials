@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4btb57d44or0"]
+
+[ext_resource type="PackedScene" uid="uid://cmii4ohsepfdv" path="res://scenes/enemies/enemy_template.tscn" id="1_h6ris"]
+[ext_resource type="Texture2D" uid="uid://de2dacqyurgn4" path="res://assets/enemies/abomination.png" id="2_l64os"]
+
+[node name="Abomination" instance=ExtResource("1_h6ris")]
+move_speed = 32
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_l64os")
+
+[node name="Collision" parent="Hitbox" index="0"]
+visible = false

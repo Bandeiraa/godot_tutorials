@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx80ln1nsjmkt"]
+[gd_scene load_steps=4 format=3 uid="uid://cx80ln1nsjmkt"]
 
 [ext_resource type="PackedScene" uid="uid://b8gx47nxffwlh" path="res://scenes/character/template.tscn" id="1_goh6y"]
 [ext_resource type="Texture2D" uid="uid://kkhry30vo27n" path="res://assets/classes/skeleton.png" id="2_marxn"]
+[ext_resource type="PackedScene" uid="uid://d2ay17smaa4yu" path="res://scenes/env/spear.tscn" id="2_u745n"]
 
 [node name="Skeleton" instance=ExtResource("1_goh6y")]
+health = 15
+attack_cooldown = 1.0
+attack = ExtResource("2_u745n")
 
 [node name="Texture" parent="." index="1"]
 texture = ExtResource("2_marxn")

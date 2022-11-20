@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmii4ohsepfdv"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_57pnh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pjenh"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_tw0hc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_iqcb3"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cmn1t"]
+_data = {
+"RESET": SubResource("Animation_tw0hc"),
+"walk": SubResource("Animation_iqcb3")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ei60i"]
+
+[node name="EnemyTemplate" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_57pnh")
+
+[node name="Texture" type="Sprite2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_pjenh")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+autoplay = "walk"
+libraries = {
+"": SubResource("AnimationLibrary_cmn1t")
+}
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_ei60i")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="on_attack_timer_timeout"]
