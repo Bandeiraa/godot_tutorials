@@ -11,8 +11,18 @@ const SHADER_BUTTON: PackedScene = preload("res://scenes/management/shader_butto
 
 var shader_list: Array = [
 	[
-		"Contorno + Flash 2D",
+		"Contorno",
 		"res://scenes/outline_2d.tscn"
+	],
+	
+	[
+		"Efeito de Hit/Flash",
+		"res://scenes/flash_effect.tscn"
+	],
+	
+	[
+		"Hit/Flash + Contorno",
+		"res://scenes/flash_and_outline.tscn"
 	]
 ]
 

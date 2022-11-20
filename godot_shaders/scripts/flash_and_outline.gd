@@ -1,6 +1,7 @@
-extends Sprite2D
+extends FlashEffect
 
 func _process(_delta: float) -> void:
+	hit()
 	toggle_outline()
 	
 	

@@ -6,5 +6,5 @@
 shader = ExtResource("1_pvbok")
 shader_parameter/is_on_hit = false
 shader_parameter/is_outline_active = true
-shader_parameter/line_color = Color(0, 0.521569, 0.462745, 1)
+shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/thickness = 1.0

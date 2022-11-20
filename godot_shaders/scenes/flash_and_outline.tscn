@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2f4uxldqf5gb"]
+
+[ext_resource type="PackedScene" uid="uid://bk4f7dxu8ujrp" path="res://scenes/flash_effect.tscn" id="1_rmlc2"]
+[ext_resource type="Material" uid="uid://dqo8h6xg43ukq" path="res://materials/blink_and_outline_2d.tres" id="2_pxe83"]
+[ext_resource type="Script" path="res://scripts/flash_and_outline.gd" id="3_3n6jw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ic2yq"]
+load_path = "res://.godot/imported/warrior.png-4e6d2393ea2d7e924226543bdb7ff6ac.ctex"
+
+[node name="FlashAndOutline" instance=ExtResource("1_rmlc2")]
+material = ExtResource("2_pxe83")
+texture = SubResource("CompressedTexture2D_ic2yq")
+script = ExtResource("3_3n6jw")

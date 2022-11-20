@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk4f7dxu8ujrp"]
+
+[ext_resource type="Texture2D" uid="uid://d3b3qk5fvbsly" path="res://assets/warrior.png" id="1_15ciw"]
+[ext_resource type="Material" uid="uid://bj3fmasj0v6o2" path="res://materials/flash_effect.tres" id="1_uhni7"]
+[ext_resource type="Script" path="res://scripts/flash_effect.gd" id="3_22a81"]
+
+[sub_resource type="Animation" id="Animation_2v5ip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p0ljt"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hkk6k"]
+_data = {
+"RESET": SubResource("Animation_2v5ip"),
+"idle": SubResource("Animation_p0ljt")
+}
+
+[node name="FlashEffect" type="Sprite2D"]
+material = ExtResource("1_uhni7")
+texture = ExtResource("1_15ciw")
+hframes = 6
+vframes = 8
+script = ExtResource("3_22a81")
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(2, 2)
+
+[node name="HitTimer" type="Timer" parent="."]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_hkk6k")
+}
+
+[connection signal="timeout" from="HitTimer" to="." method="on_hit_timer_timeout"]

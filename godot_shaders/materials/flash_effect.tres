@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bj3fmasj0v6o2"]
+
+[ext_resource type="Shader" path="res://shaders/flash_effect.gdshader" id="1_qg5ia"]
+
+[resource]
+shader = ExtResource("1_qg5ia")
+shader_parameter/is_on_hit = false
