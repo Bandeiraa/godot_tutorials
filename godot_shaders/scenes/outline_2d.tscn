@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo8cuin0xuh47"]
+
+[ext_resource type="Shader" path="res://shaders/outline_2d.gdshader" id="1_10fqi"]
+[ext_resource type="Texture2D" uid="uid://d3b3qk5fvbsly" path="res://assets/warrior.png" id="1_uwfgs"]
+[ext_resource type="Script" path="res://scripts/outline_2d.gd" id="3_80van"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_srsq0"]
+shader = ExtResource("1_10fqi")
+shader_parameter/is_on_hit = false
+shader_parameter/is_outline_active = true
+shader_parameter/line_color = Color(0, 0.521569, 0.462745, 1)
+shader_parameter/thickness = 1.0
+
+[sub_resource type="Animation" id="Animation_7kx0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/is_on_hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m1lsi"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_yq3uf"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/is_on_hit")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0n4yp"]
+_data = {
+"RESET": SubResource("Animation_7kx0e"),
+"hit": SubResource("Animation_yq3uf"),
+"idle": SubResource("Animation_m1lsi")
+}
+
+[node name="Warrior" type="Sprite2D"]
+material = SubResource("ShaderMaterial_srsq0")
+texture = ExtResource("1_uwfgs")
+hframes = 6
+vframes = 8
+script = ExtResource("3_80van")
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2(2, 2)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_0n4yp")
+}
+
+[connection signal="animation_finished" from="Animation" to="." method="on_animation_finished"]
