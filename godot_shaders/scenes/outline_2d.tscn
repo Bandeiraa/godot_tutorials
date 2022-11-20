@@ -1,15 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bo8cuin0xuh47"]
+[gd_scene load_steps=8 format=3 uid="uid://bo8cuin0xuh47"]
 
-[ext_resource type="Shader" path="res://shaders/outline_2d.gdshader" id="1_10fqi"]
+[ext_resource type="Material" uid="uid://dqo8h6xg43ukq" path="res://materials/blink_and_outline_2d.tres" id="1_kds7r"]
 [ext_resource type="Texture2D" uid="uid://d3b3qk5fvbsly" path="res://assets/warrior.png" id="1_uwfgs"]
 [ext_resource type="Script" path="res://scripts/outline_2d.gd" id="3_80van"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_srsq0"]
-shader = ExtResource("1_10fqi")
-shader_parameter/is_on_hit = false
-shader_parameter/is_outline_active = true
-shader_parameter/line_color = Color(0, 0.521569, 0.462745, 1)
-shader_parameter/thickness = 1.0
 
 [sub_resource type="Animation" id="Animation_7kx0e"]
 length = 0.001
@@ -91,7 +84,7 @@ _data = {
 }
 
 [node name="Warrior" type="Sprite2D"]
-material = SubResource("ShaderMaterial_srsq0")
+material = ExtResource("1_kds7r")
 texture = ExtResource("1_uwfgs")
 hframes = 6
 vframes = 8

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dqo8h6xg43ukq"]
+
+[ext_resource type="Shader" path="res://shaders/blink_and_outline_2d.gdshader" id="1_pvbok"]
+
+[resource]
+shader = ExtResource("1_pvbok")
+shader_parameter/is_on_hit = false
+shader_parameter/is_outline_active = true
+shader_parameter/line_color = Color(0, 0.521569, 0.462745, 1)
+shader_parameter/thickness = 1.0

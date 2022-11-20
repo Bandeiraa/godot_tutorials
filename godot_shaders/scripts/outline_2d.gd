@@ -10,12 +10,14 @@ func _process(_delta: float) -> void:
 	
 	
 func hit() -> void:
+	#Espaço do teclado
 	if Input.is_action_just_pressed("ui_select") and not on_hit:
 		animation.play("hit")
 		on_hit = true
 		
 		
 func toggle_outline() -> void:
+	#Enter do teclado
 	if Input.is_action_just_pressed("ui_accept"):
 		material.set_shader_parameter(
 			"is_outline_active",
