@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxynjes6nq8w1"]
+
+[ext_resource type="PackedScene" uid="uid://cmii4ohsepfdv" path="res://scenes/enemies/enemy_template.tscn" id="1_0eac7"]
+[ext_resource type="Texture2D" uid="uid://xkq5u4ln0o6v" path="res://assets/enemies/flying_eye.png" id="2_o3oiw"]
+
+[node name="FlyingEye" instance=ExtResource("1_0eac7")]
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_o3oiw")

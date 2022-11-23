@@ -23,6 +23,11 @@ var shader_list: Array = [
 	[
 		"Hit/Flash + Contorno",
 		"res://scenes/flash_and_outline.tscn"
+	],
+	
+	[
+		"Dissolver",
+		"res://scenes/dissolve.tscn"
 	]
 ]
 

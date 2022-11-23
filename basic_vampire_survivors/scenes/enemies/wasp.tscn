@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://3h67lvsol01f"]
+
+[ext_resource type="PackedScene" uid="uid://cmii4ohsepfdv" path="res://scenes/enemies/enemy_template.tscn" id="1_8ouyh"]
+[ext_resource type="Texture2D" uid="uid://ebwffyyscnc5" path="res://assets/enemies/wasp.png" id="2_3qj6b"]
+
+[node name="Wasp" instance=ExtResource("1_8ouyh")]
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_3qj6b")

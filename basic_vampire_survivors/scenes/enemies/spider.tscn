@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://s1cncg31301m"]
+
+[ext_resource type="PackedScene" uid="uid://cmii4ohsepfdv" path="res://scenes/enemies/enemy_template.tscn" id="1_usqlf"]
+[ext_resource type="Texture2D" uid="uid://ccrlh4sstt058" path="res://assets/enemies/spider.png" id="2_r5xus"]
+
+[node name="Spider" instance=ExtResource("1_usqlf")]
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_r5xus")

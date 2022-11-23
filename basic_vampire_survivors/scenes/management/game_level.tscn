@@ -1,9 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxvge2frlm1xy"]
+[gd_scene load_steps=4 format=3 uid="uid://bxvge2frlm1xy"]
 
 [ext_resource type="PackedScene" uid="uid://chqfjl8futd1e" path="res://scenes/env/terrain.tscn" id="1_cc6s7"]
 [ext_resource type="Script" path="res://scripts/game_level.gd" id="1_rcx6n"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="3_ugk7y"]
 
 [node name="GameLevel" type="Node2D"]
 script = ExtResource("1_rcx6n")
 
 [node name="Terrain" parent="." instance=ExtResource("1_cc6s7")]
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_ugk7y")
+
+[node name="SpawnerList" type="Node2D" parent="Spawner"]
+
+[node name="LeftSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(-400, 0)
+
+[node name="TopLeftSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(-400, -400)
+
+[node name="TopSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(0, -400)
+
+[node name="TopRightSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(400, -400)
+
+[node name="RightSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(400, 0)
+
+[node name="BottomRightSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(400, 400)
+
+[node name="BottomSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(0, 400)
+
+[node name="BottomLeftSpawn" type="Marker2D" parent="Spawner/SpawnerList"]
+position = Vector2(-400, 400)
+
+[node name="Timer" type="Timer" parent="Spawner"]
+wait_time = 0.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="on_timer_timeout"]

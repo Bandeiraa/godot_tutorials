@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cosugetpd21k2"]
+
+[ext_resource type="PackedScene" uid="uid://cmii4ohsepfdv" path="res://scenes/enemies/enemy_template.tscn" id="1_2dqgu"]
+[ext_resource type="Texture2D" uid="uid://dy04wtkrd3dai" path="res://assets/enemies/slime.png" id="2_710jp"]
+
+[node name="Slime" instance=ExtResource("1_2dqgu")]
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("2_710jp")
