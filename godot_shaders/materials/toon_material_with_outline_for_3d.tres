@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cnmkoqgqi321b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2b4g"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+grow = true
+grow_amount = 0.02
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_y2b4g")
+diffuse_mode = 3
+specular_mode = 1
+metallic_specular = 0.0
+roughness = 0.0

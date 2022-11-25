@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://crtj8peg2t701"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_38vos"]
+sky_energy_multiplier = 2.0
+ground_horizon_color = Color(0.647059, 0.654902, 0.670588, 1)
+
+[sub_resource type="Sky" id="Sky_k4v2x"]
+sky_material = SubResource("ProceduralSkyMaterial_38vos")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_mac1a"]
+background_mode = 2
+sky = SubResource("Sky_k4v2x")
+ssr_enabled = true
+ssr_fade_in = 1.5
+ssao_enabled = true
+ssil_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.266667, 0.560784, 0.627451, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.15
+volumetric_fog_albedo = Color(0.266667, 0.560784, 0.627451, 1)
+adjustment_enabled = true
+
+[node name="PostProcessing" type="Node3D"]
+
+[node name="Light" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.353553, -0.612372, 0, 0.866025, 0.5, 0.707107, -0.353553, 0.612372, 0, 0, 0)
+
+[node name="World" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mac1a")

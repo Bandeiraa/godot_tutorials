@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2dk3e2ds2vnj"]
+
+[ext_resource type="Material" uid="uid://cnmkoqgqi321b" path="res://materials/toon_material_with_outline_for_3d.tres" id="1_28aku"]
+[ext_resource type="PackedScene" uid="uid://crtj8peg2t701" path="res://scenes/management/post_processing_3d.tscn" id="2_sri27"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rhl1e"]
+material = ExtResource("1_28aku")
+
+[node name="ToonShadingSample" type="Node3D"]
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_rhl1e")
+
+[node name="PostProcessing" parent="." instance=ExtResource("2_sri27")]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+current = true

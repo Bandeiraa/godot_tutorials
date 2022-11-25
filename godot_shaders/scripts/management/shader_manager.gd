@@ -28,6 +28,16 @@ var shader_list: Array = [
 	[
 		"Dissolver",
 		"res://scenes/dissolve.tscn"
+	],
+	
+	[
+		"Material 3D (Contorno + Toon)",
+		"res://scenes/3d/toon_shading_sample.tscn"
+	],
+	
+	[
+		"Personagem 3D (Contorno + Toon)",
+		"res://scenes/3d/duck_with_toon_shader.tscn"
 	]
 ]
 

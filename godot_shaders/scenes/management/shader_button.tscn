@@ -13,14 +13,13 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(4, 4)
 
 [node name="ShaderButton" type="Button"]
-custom_minimum_size = Vector2(600, 60)
+custom_minimum_size = Vector2(800, 60)
 offset_right = 600.0
 offset_bottom = 60.0
 size_flags_horizontal = 4
 script = ExtResource("1_tjf16")
 
 [node name="Text" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
