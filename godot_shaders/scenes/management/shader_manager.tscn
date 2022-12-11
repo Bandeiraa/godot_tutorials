@@ -22,7 +22,6 @@ grow_vertical = 2
 script = ExtResource("1_2vled")
 
 [node name="Background" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,7 +30,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.4)
 
 [node name="VContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,7 +45,6 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="PlaceholderText" type="Label" parent="VContainer"]
-layout_mode = 2
 offset_right = 800.0
 offset_bottom = 40.0
 text = "Selecione um shader"
@@ -56,14 +53,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ShaderList" type="ScrollContainer" parent="VContainer"]
-layout_mode = 2
 offset_top = 60.0
 offset_right = 800.0
 offset_bottom = 600.0
 size_flags_vertical = 3
 
 [node name="VContainer" type="VBoxContainer" parent="VContainer/ShaderList"]
-layout_mode = 2
 offset_right = 800.0
 offset_bottom = 540.0
 size_flags_horizontal = 3

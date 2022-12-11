@@ -20,6 +20,7 @@ size_flags_horizontal = 4
 script = ExtResource("1_tjf16")
 
 [node name="Text" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
